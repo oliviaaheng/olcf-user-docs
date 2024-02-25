@@ -13,3 +13,4 @@ and data analytics tasks on OLCF systems.
    pbdR
    nvidia-rapids
    apache-spark
+   nvflare-examples
