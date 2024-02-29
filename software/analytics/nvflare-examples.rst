@@ -157,6 +157,8 @@ NVIDIA provides several examples to help you get started using federated learnin
     c. sag_deploy_map
         i. 
 
+
+.. first priority!!
 5. Open Source Example: https://github.com/bethropolis/myia
     1. Clone the MYIA repository:
         .. code-block:: bash
@@ -189,6 +191,8 @@ NVIDIA provides several examples to help you get started using federated learnin
                 pyenv install 3.8
                 pip install -r requirements.txt
 
+                .. possible solution: remake environment using 3.8 python version, check the python version before making the env, dont assume it uninstalled the newer version
+                
 
     8. Setup project:
         .. code-block:: bash
