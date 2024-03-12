@@ -163,36 +163,50 @@ NVIDIA provides several examples to help you get started using federated learnin
     1. Clone the MYIA repository:
         .. code-block:: bash
             git clone https://github.com/bethropolis/myia.git
+    
     2. Choose your model data and take pictures for your model to train and test on
         In this walkthrough, I trained the model on writing utensils, and included non-writing utensil pictures (ie water bottle, nail polish, etc)
+    
     3. Upload all test and training images into the respective test and training folder in the myia folder
+    
     4. Open a terminal window
+        NOTE: This open-source repository requires python 3.#. (python 3.8, 3.9, 3.10 do not work)
+        .. code-block::
+          pyenv install 3.9
+    
     5. Create a new virtual environment:
         .. code-block:: bash
-            python3 -m venv myiaenv
+          pyenv virtualenv 3.9 myiaenv
+    
     6. Activate the newly created environment
         .. code-block:: bash
-            source myiaenv/bin/activate 
-    7. Install the dependencies by running the following command:
-        .. code-block:: bash
-             pip install -r requirements.txt
-        Note: I recieved the following error:
-        .. code-block:: bash
-            ERROR: Ignored the following versions that require a different python version: 1.21.2 Requires-Python >=3.7,<3.11; 1.21.3 Requires-Python >=3.7,<3.11; 1.21.4 Requires-Python >=3.7,<3.11; 1.21.5 Requires-Python >=3.7,<3.11; 1.21.6 Requires-Python >=3.7,<3.11
-            ERROR: Could not find a version that satisfies the requirement tensorflow==2.15.0.post1 (from versions: 2.12.0rc0, 2.12.0rc1, 2.12.0, 2.12.1, 2.13.0rc0, 2.13.0rc1, 2.13.0rc2, 2.13.0, 2.13.1, 2.14.0rc0, 2.14.0rc1, 2.14.0, 2.14.1, 2.15.0rc0, 2.15.0rc1, 2.15.0)
-            ERROR: No matching distribution found for tensorflow==2.15.0.post1
-        To resolve, I ran 
-            .. code-block:: bash
-                pip3 install --upgrade pip
-                pip3 install tensorflow==2.15.0.post1 (DIDNT WORK)
-                    ERROR: Could not find a version that satisfies the requirement tensorflow==2.15.0.post1 (from versions: 2.12.0rc0, 2.12.0rc1, 2.12.0, 2.12.1, 2.13.0rc0, 2.13.0rc1, 2.13.0rc2, 2.13.0, 2.13.1, 2.14.0rc0, 2.14.0rc1, 2.14.0, 2.14.1, 2.15.0rc0, 2.15.0rc1, 2.15.0)
-                    ERROR: No matching distribution found for tensorflow==2.15.0.post1
-                pip install -r requirements.txt
-                pyenv install 3.8
-                pip install -r requirements.txt
+          pyenv activate myiaenv
 
-                .. possible solution: remake environment using 3.8 python version, check the python version before making the env, dont assume it uninstalled the newer version
-                
+          Note: double check your python version using:
+          .. code-block:: bash  
+            python --version
+          
+    7. Open the requirements.txt file in your myia project folder and 
+        i. replace "tensorflow==2.15.post1" with "tensorflow==2.15.1"
+        ii. replace "ml-dtypes==0.2.0" with "ml-dtypes==0.3.1" 
+        iii. Save
+    
+    8. Install the dependencies by running the following command:
+        .. code-block:: bash
+          pip install -r requirements.txt
+        
+    9. Run the app using the following terminal command:
+        .. code-block:: bash
+           python app.py
+
+.. nvflare, need the data directory, put all the data there and in the file location, dont use gui 
+.. instead of the button clicked for training the model, find a way to activate it all in the code (again no gui)
+.. make sure it works once using the code calls 
+.. fork the myia repo and modify the documentation and link here in olcf user docs
+
+
+.. possible solution: remake environment using 3.8 python version, check the python version before making the env, dont assume it uninstalled the newer version
+                             
 
     8. Setup project:
         .. code-block:: bash
