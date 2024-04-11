@@ -208,9 +208,8 @@ NVIDIA provides several examples to help you get started using federated learnin
           nvflare simulator -w /tmp/myia -n 1 -t 1 Shared/ornldev/projects/custom/app
 
           NOTE: 
-          1. does the example have to be moved into the nvflare folder on local machine? 
-          all examples in the nvflare example have their code in the nvflare folder
-          2. 
+          1. the example must be in a folder called custom -> app, etc. Should think about how to teach users to made this file structure
+          2. to run the command, you must be outside the path (example: i must be at Users to get to Shared )
 .. NEXT STEPS 
   .. Go through nvflare example 
   .. first test to create the client and fed server and copy it and create a different file name for the path, 
