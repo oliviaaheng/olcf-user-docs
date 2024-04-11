@@ -160,14 +160,23 @@ NVIDIA provides several examples to help you get started using federated learnin
 
 .. first priority!!
 5. Open Source Example: https://github.com/bethropolis/myia
+  NOTE: NVFlare requires python version greater than 3.8
     1. Clone the MYIA repository:
         .. code-block:: bash
-            git clone https://github.com/bethropolis/myia.git
+            git clone https://github.com/oliviaaheng/myia.git
     
     2. Choose your model data and take pictures for your model to train and test on
         In this walkthrough, I trained the model on writing utensils, and included non-writing utensil pictures (ie water bottle, nail polish, etc)
+
+        NOTE: all images must be in .jpg file format
     
-    3. Upload all test and training images into the respective test and training folder in the myia folder
+    3. Create a data directory: 
+        Note: given that the forked repo has training, training/train, training/test, model, model/evaluation, model/labeled, model/labeled/bad, model/labeled/good 
+        For the MYIA repo:
+          Upload all good test images into model/evaluation/good folder 
+          Upload all bad test images into model/evaluation/bad folder 
+          Upload all good training images into model/labeled/good folder 
+          Upload all bad training images into model/labeled/bad folder 
     
     4. Open a terminal window
         NOTE: This open-source repository requires python 3.#. (python 3.8, 3.9, 3.10 do not work)
@@ -185,31 +194,34 @@ NVIDIA provides several examples to help you get started using federated learnin
           Note: double check your python version using:
           .. code-block:: bash  
             python --version
-          
-    7. Open the requirements.txt file in your myia project folder and 
-        i. replace "tensorflow==2.15.post1" with "tensorflow==2.15.1"
-        ii. replace "ml-dtypes==0.2.0" with "ml-dtypes==0.3.1" 
-        iii. Save
     
-    8. Install the dependencies by running the following command:
+    7. Install the dependencies by running the following command:
         .. code-block:: bash
           pip install -r requirements.txt
         
-    9. Run the app using the following terminal command:
+    8. Run the app using the following terminal command:
         .. code-block:: bash
-           python app.py
+          python nvflare_test.py
 
-.. nvflare, need the data directory, put all the data there and in the file location, dont use gui 
-.. instead of the button clicked for training the model, find a way to activate it all in the code (again no gui)
-.. make sure it works once using the code calls 
-.. fork the myia repo and modify the documentation and link here in olcf user docs
-
-
-.. possible solution: remake environment using 3.8 python version, check the python version before making the env, dont assume it uninstalled the newer version
-                             
-
-    8. Setup project:
+    9. Run the app in NVFlare using the following terminal command:
         .. code-block:: bash
-            python setup.py 
+          nvflare simulator -w /tmp/myia -n 1 -t 1 Shared/ornldev/projects/custom/app
+
+          NOTE: 
+          1. does the example have to be moved into the nvflare folder on local machine? 
+          all examples in the nvflare example have their code in the nvflare folder
+          2. 
+.. NEXT STEPS 
+  .. Go through nvflare example 
+  .. first test to create the client and fed server and copy it and create a different file name for the path, 
+  and where it calls execute have a print statement to see if it works, just to see if nvflare gets to that point
+  .. then make the train function
+  .. configure to run on one epoch
+    .. the next step after getting one epoch working, we need to figure out how to write and store the trainable weights after each epoch iteration
+
+
+    .. 8. Setup project:
+    ..     .. code-block:: bash
+    ..         python setup.py 
 .. note::
 ..     The `spark documentation <https://spark.apache.org/docs/latest/>`_ is very useful tool, go through it to find the Spark capabilities.
